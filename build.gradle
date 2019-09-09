@@ -25,7 +25,7 @@ mainClassName = 'DMCBM.App'
 
 jar {
     manifest {
-        attributes 'Main-Class': 'PwPj.Launcher'
+        attributes 'Main-Class': 'DMCBM.Launcher'
     }
     from {
         configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
