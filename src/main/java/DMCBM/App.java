@@ -52,7 +52,9 @@ public class App extends Application {
 
     public double calculate(int base, int roll, int diff, int range) {
         double val = 2 * (Math.random() - 0.5) * range;
-        return (int) mGaussian(val, 0, roll, Math.max((base + roll) - diff, 0));
+        int out = (int) mGaussian(val, 0, roll, Math.max((base + roll) - diff, 0));
+        out = (out + 10 >= diff) ? out * 2 : out;
+        return out;
     }
 
     public double mGaussian(double x, double center, double deviation, double amplitude) {
