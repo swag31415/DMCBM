@@ -1,112 +1,56 @@
 package DMCBM;
 
+import java.io.IOException;
 import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
-import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 public class App extends Application {
 
-    @FXML
-    private TextField input_one;
+    private static Stage pStage;
+    private static App instance;
 
-    @FXML
-    private TextField input_two;
+    public enum fxmlFiles {
+        StatController("StatBlocks/StatGUI.fxml"),
+        webPaneController("StatBlocks/webPaneGUI.fxml");
 
-    @FXML
-    private TextField input_three;
+        private String file;
 
-    @FXML
-    private TextField input_four;
+        private fxmlFiles(String file) {
+            this.file = file;
+        }
 
-    @FXML
-    private Label output;
+        public String get() {
+            return this.file;
+        }
+    }
 
     public static void main(String[] args) {
         launch(args);
     }
 
     @Override
-    public void init() throws Exception {
+    public void start(Stage primaryStage) throws IOException {
+        App.pStage = primaryStage;
 
-    }
+        primaryStage.setResizable(false);
 
-    @Override
-    public void start(Stage primaryStage) throws Exception {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getClassLoader().getResource("gui.fxml"));
-        AnchorPane pane = loader.<AnchorPane>load();
-
-        primaryStage.setScene(new Scene(pane));
+        loadScene(fxmlFiles.StatController, App.pStage);
         primaryStage.show();
     }
 
-    public double calculate(int base, int roll, int diff) {
-        return calculate(base, roll, diff, 20);
+    @Override
+    public void init() {
+        App.instance = this;
     }
 
-    public double calculate(int base, int roll, int diff, int range) {
-        double val = 2 * (Math.random() - 0.5) * range;
-        int out = (int) mGaussian(val, 0, roll, Math.max((base + roll) - diff, 0));
-        out = (out + 10 >= diff) ? out * 2 : out;
-        return out;
-    }
-
-    public double mGaussian(double x, double center, double deviation, double amplitude) {
-        return amplitude * pdf((x - center) / deviation);
-    }
-
-    public double pdf(double x) {
-        return Math.exp(-(x)*(x) / 2);
-    }
-
-    @FXML
-    void input(ActionEvent event) {
-        if (areInputsFull()) {
-            String out;
-            try {
-                out = String.valueOf(calculate(Integer.parseInt(input_one.getText()), Integer.parseInt(input_two.getText()), Integer.parseInt(input_three.getText())));
-            } catch (NumberFormatException e) {
-                out = null;
-            }
-
-            clearInputs();
-            input_one.requestFocus();
-            output.setText((out == null) ? "NaN": out);
-        } else {
-            getNextEmpty().requestFocus();
-        }
-    }
-
-    public boolean areInputsFull() {
-        return (!input_one.getText().equals("")) && (!input_two.getText().equals("")) && (!input_three.getText().equals(""));
-    }
-
-    public TextField getNextEmpty() {
-        if (input_one.getText().equals("")) {
-            return input_one;
-        }
-        if (input_two.getText().equals("")) {
-            return input_two;
-        }
-        if (input_three.getText().equals("")) {
-            return input_three;
-        }
-        if (input_four.getText().equals("")) {
-            return input_four;
-        }
-        return null;
-    }
-
-    public void clearInputs() {
-        input_one.setText("");
-        input_two.setText("");
-        input_three.setText("");
-        input_four.setText("");
+    public static <T> T loadScene(fxmlFiles file, Stage stage) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(instance.getClass().getClassLoader().getResource(file.get()));
+        Pane pane = loader.<Pane>load();
+        stage.setScene(new Scene(pane));
+        return loader.getController();
     }
 }
