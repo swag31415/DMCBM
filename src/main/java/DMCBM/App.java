@@ -13,6 +13,7 @@ public class App extends Application {
     private static App instance;
 
     public enum fxmlFiles {
+        Chooser("Chooser.fxml"),
         StatController("StatBlocks/StatGUI.fxml"),
         webPaneController("StatBlocks/webPaneGUI.fxml");
 
@@ -37,7 +38,7 @@ public class App extends Application {
 
         primaryStage.setResizable(false);
 
-        loadScene(fxmlFiles.StatController, App.pStage);
+        loadScene(fxmlFiles.Chooser, App.pStage);
         primaryStage.show();
     }
 
