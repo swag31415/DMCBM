@@ -1,6 +1,8 @@
 package DMCBM;
 
 import java.io.IOException;
+import java.net.URL;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -15,7 +17,8 @@ public class App extends Application {
     public enum fxmlFiles {
         Chooser("Chooser.fxml"),
         StatController("StatBlocks/StatGUI.fxml"),
-        webPaneController("StatBlocks/webPaneGUI.fxml");
+        webPaneController("StatBlocks/webPaneGUI.fxml"),
+        DiceController("Dice/DiceGUI.fxml");
 
         private String file;
 
@@ -47,11 +50,17 @@ public class App extends Application {
         App.instance = this;
     }
 
-    public static <T> T loadScene(fxmlFiles file, Stage stage) throws IOException {
+    public static <T extends Controller> T loadScene(fxmlFiles file, Stage stage) throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(instance.getClass().getClassLoader().getResource(file.get()));
         Pane pane = loader.<Pane>load();
         stage.setScene(new Scene(pane));
         return loader.getController();
+    }
+
+    public static <T extends Pane> T getFxml(fxmlFiles file) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(instance.getClass().getClassLoader().getResource(file.get()));
+        return loader.<T>load();
     }
 }

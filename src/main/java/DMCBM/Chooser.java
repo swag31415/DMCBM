@@ -15,8 +15,10 @@ public class Chooser extends Controller {
     }
 
     @FXML
-    void dice_button(ActionEvent event) {
-
+    void dice_button(ActionEvent event) throws IOException {
+        Stage tStage = new Stage();
+        App.loadScene(fxmlFiles.DiceController, tStage);
+        tStage.show();
     }
 
     @FXML
