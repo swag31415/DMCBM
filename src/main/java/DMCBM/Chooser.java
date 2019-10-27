@@ -34,8 +34,10 @@ public class Chooser extends Controller {
     }
 
     @FXML
-    void npc_button(ActionEvent event) {
-
+    void npc_button(ActionEvent event) throws IOException {
+        Stage tStage = new Stage();
+        App.loadScene(fxmlFiles.NpcController, tStage);
+        tStage.show();
     }
 
     @FXML

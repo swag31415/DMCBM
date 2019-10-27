@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="425.0" style="-fx-background-color: #E69A28;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="DMCBM.Npc.NpcController">
+   <children>
+      <TextArea fx:id="disp" editable="false" opacity="0.8" prefHeight="540.0" prefWidth="425.0" style="-fx-background-color: #867453;" text="It takes a while on its first generation. Just give it some time....&#10;&#10;&#10;Also ensure you're connected to the internet." />
+      <Button layoutY="540.0" mnemonicParsing="false" onAction="#generate" prefHeight="60.0" prefWidth="425.0" style="-fx-background-color: #E69A28; -fx-text-fill: #FDF1DC;" text="Generate" />
+   </children>
+</AnchorPane>

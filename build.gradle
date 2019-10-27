@@ -21,6 +21,10 @@ dependencies {
     implementation 'com.github.javafaker:javafaker:1.0.1'
 
     runtimeOnly "org.openjfx:javafx-graphics:$javafx.version:win"
+
+    // https://mvnrepository.com/artifact/net.sourceforge.htmlunit/htmlunit
+    compile group: 'net.sourceforge.htmlunit', name: 'htmlunit', version: '2.36.0'
+
 }
 
 mainClassName = 'DMCBM.App'

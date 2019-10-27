@@ -1,7 +1,13 @@
 package DMCBM;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.net.URL;
+
+import com.gargoylesoftware.htmlunit.BrowserVersion;
+import com.gargoylesoftware.htmlunit.WebClient;
+import com.gargoylesoftware.htmlunit.html.HtmlPage;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -18,7 +24,8 @@ public class App extends Application {
         Chooser("Chooser.fxml"),
         StatController("StatBlocks/StatGUI.fxml"),
         webPaneController("StatBlocks/webPaneGUI.fxml"),
-        DiceController("Dice/DiceGUI.fxml");
+        DiceController("Dice/DiceGUI.fxml"),
+        NpcController("Npc/NpcGUI.fxml");
 
         private String file;
 
@@ -41,7 +48,7 @@ public class App extends Application {
 
         primaryStage.setResizable(false);
 
-        loadScene(fxmlFiles.Chooser, App.pStage);
+        App.loadScene(fxmlFiles.Chooser, App.pStage);
         primaryStage.show();
     }
 
@@ -52,7 +59,7 @@ public class App extends Application {
 
     public static <T extends Controller> T loadScene(fxmlFiles file, Stage stage) throws IOException {
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(instance.getClass().getClassLoader().getResource(file.get()));
+        loader.setLocation(App.getResource(file.get()));
         Pane pane = loader.<Pane>load();
         stage.setScene(new Scene(pane));
         return loader.getController();
@@ -60,7 +67,11 @@ public class App extends Application {
 
     public static <T extends Pane> T getFxml(fxmlFiles file) throws IOException {
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(instance.getClass().getClassLoader().getResource(file.get()));
+        loader.setLocation(App.getResource(file.get()));
         return loader.<T>load();
+    }
+
+    private static URL getResource(String file) {
+        return App.instance.getClass().getClassLoader().getResource(file);
     }
 }
