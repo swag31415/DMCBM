@@ -41,8 +41,11 @@ public class Chooser extends Controller {
     }
 
     @FXML
-    void town_button(ActionEvent event) {
-
+    void town_button(ActionEvent event) throws IOException {
+        Stage tStage = new Stage();
+        tStage.setResizable(false);
+        App.loadScene(fxmlFiles.TownController, tStage);
+        tStage.show();
     }
 
     @FXML
