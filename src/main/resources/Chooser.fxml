@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="368.0" prefWidth="204.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="DMCBM.Chooser">
+   <children>
+      <Button layoutX="2.0" layoutY="2.0" mnemonicParsing="false" onAction="#dice_button" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #E69A28; -fx-text-fill: #FDF1DC;" text="Dice" />
+      <Button layoutX="2.0" layoutY="54.0" mnemonicParsing="false" onAction="#dungeon_button" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #E69A28; -fx-text-fill: #FDF1DC;" text="Dungeon" />
+      <Button layoutX="2.0" layoutY="106.0" mnemonicParsing="false" onAction="#monster_button" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #E69A28; -fx-text-fill: #FDF1DC;" text="Monster" />
+      <Button layoutX="2.0" layoutY="158.0" mnemonicParsing="false" onAction="#npc_button" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #E69A28; -fx-text-fill: #FDF1DC;" text="NPC" />
+      <Button layoutX="2.0" layoutY="210.0" mnemonicParsing="false" onAction="#town_button" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #E69A28; -fx-text-fill: #FDF1DC;" text="Town" />
+      <Button layoutX="2.0" layoutY="262.0" mnemonicParsing="false" onAction="#music_button" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #E69A28; -fx-text-fill: #FDF1DC;" text="Music" />
+      <Button layoutX="2.0" layoutY="314.0" mnemonicParsing="false" onAction="#close_button" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #E69A28; -fx-text-fill: #FDF1DC;" text="Close" />
+   </children>
+</AnchorPane>

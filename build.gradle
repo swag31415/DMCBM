@@ -8,7 +8,7 @@ plugins {
 
 javafx {
     version = "12.0.2"
-    modules = ['javafx.fxml', 'javafx.controls']
+    modules = ['javafx.fxml', 'javafx.controls', 'javafx.web']
 }
 
 repositories {
@@ -17,8 +17,14 @@ repositories {
 
 dependencies {
     implementation 'com.google.guava:guava:27.0.1-jre'
+    compile 'com.j2html:j2html:1.4.0'
+    implementation 'com.github.javafaker:javafaker:1.0.1'
 
     runtimeOnly "org.openjfx:javafx-graphics:$javafx.version:win"
+
+    // https://mvnrepository.com/artifact/net.sourceforge.htmlunit/htmlunit
+    compile group: 'net.sourceforge.htmlunit', name: 'htmlunit', version: '2.36.0'
+
 }
 
 mainClassName = 'DMCBM.App'
