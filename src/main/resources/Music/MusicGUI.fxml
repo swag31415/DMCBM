@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.media.MediaView?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="300.0" style="-fx-background-color: #FDF1DC;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="DMCBM.Music.MusicController">
+   <children>
+      <ComboBox fx:id="cBox" layoutX="10.0" layoutY="14.0" prefHeight="30.0" prefWidth="280.0" style="-fx-background-color: #FDF1DC; -fx-border-color: #867453;" />
+      <Button fx:id="cButton" layoutX="10.0" layoutY="52.0" mnemonicParsing="false" onAction="#cButton_clicked" prefHeight="70.0" prefWidth="280.0" style="-fx-background-color: #867453; -fx-text-fill: #FDF1DC;" text="Play" />
+      <MediaView fx:id="mView" fitHeight="70.0" fitWidth="280.0" layoutX="10.0" layoutY="130.0" />
+   </children>
+</AnchorPane>

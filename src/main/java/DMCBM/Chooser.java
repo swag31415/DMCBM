@@ -49,8 +49,11 @@ public class Chooser extends Controller {
     }
 
     @FXML
-    void music_button(ActionEvent event) {
-
+    void music_button(ActionEvent event) throws IOException {
+        Stage tStage = new Stage();
+        tStage.setResizable(false);
+        App.loadScene(fxmlFiles.MusicController, tStage);
+        tStage.show();
     }
 
     @FXML

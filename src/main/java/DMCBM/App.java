@@ -20,7 +20,8 @@ public class App extends Application {
         webPaneController("StatBlocks/webPaneGUI.fxml"),
         DiceController("Dice/DiceGUI.fxml"),
         NpcController("Npc/NpcGUI.fxml"),
-        TownController("Town/TownGUI.fxml");
+        TownController("Town/TownGUI.fxml"),
+        MusicController("Music/MusicGUI.fxml");
 
         private String file;
 
@@ -66,7 +67,7 @@ public class App extends Application {
         return loader.<T>load();
     }
 
-    private static URL getResource(String file) {
+    public static URL getResource(String file) {
         return App.instance.getClass().getClassLoader().getResource(file);
     }
 }
